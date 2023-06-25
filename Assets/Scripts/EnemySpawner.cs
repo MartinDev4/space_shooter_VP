@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
 
-    [SerializeField] private WaveConfigSO currWave;
+    [SerializeField] private List<WaveConfigSO> waveConfigs;
+    [SerializeField] private float timeBetweenWaves = 0.5f;
+    [SerializeField] private bool isLooping;
+    private WaveConfigSO currWave;
     
     void Start() {
-        SpawnEnemies();
+        StartCoroutine(SpawnEnemyWaves());
     }
 
     public WaveConfigSO GetCurrentWave() {
         return currWave;
     }
 
-    private void SpawnEnemies() {
-        for (int i = 0; i < currWave.GetEnemyCount(); i++) {
-            Instantiate(currWave.GetEnemyPrefab(i), currWave.GetStartingWaypoint().position, Quaternion.identity,transform);
-        }
+    IEnumerator SpawnEnemyWaves() {
+        do {
+            foreach (var wave in waveConfigs) {
+                currWave = wave;
+                for (int i = 0; i < currWave.GetEnemyCount(); i++) {
+                    Instantiate(currWave.GetEnemyPrefab(i), currWave.GetStartingWaypoint().position,
+                        Quaternion.identity, transform);
+                    yield return new WaitForSeconds(currWave.GetRandomSpawnTime());
+                }
+
+                yield return new WaitForSeconds(timeBetweenWaves);
+            }
+        } while (isLooping);
+
+
     }
 }
