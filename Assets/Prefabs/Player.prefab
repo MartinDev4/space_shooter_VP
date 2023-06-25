@@ -159,8 +159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8459033985725890120, guid: 093111dce84a0be4fa02318c299c7e88, type: 3}
   projectileSpeed: 12
-  projectileLifetime: 6
+  projectileLifetime: 4
   fireRate: 0.33
+  useAI: 0
   isShooting: 0
 --- !u!1 &2065598288669584001
 GameObject:
