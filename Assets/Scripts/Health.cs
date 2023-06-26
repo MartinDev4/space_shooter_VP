@@ -11,10 +11,12 @@ public class Health : MonoBehaviour {
 
     private AudioPlayer _audioPlayer;
     private Score _score;
+    private LevelManager _levelManager;
     
     private void Awake() {
         _audioPlayer = FindObjectOfType<AudioPlayer>();
         _score = FindObjectOfType<Score>();
+        _levelManager = FindObjectOfType<LevelManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -42,6 +44,8 @@ public class Health : MonoBehaviour {
     private void Die() {
         if (!_isPlayer) {
             _score.AddScore(score);
+        } else {
+            _levelManager.LoadGameOver();
         }
         Destroy(gameObject);
     }
