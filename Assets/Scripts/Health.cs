@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
     [SerializeField] private int health = 50;
-    [SerializeField] private ParticleSystem _hitEffect; 
+    [SerializeField] private ParticleSystem _hitEffect;
+
+    private AudioPlayer _audioPlayer;
+    
+    private void Awake() {
+        _audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         DamageDealer dmgDealer = other.GetComponent<DamageDealer>();
@@ -13,6 +19,7 @@ public class Health : MonoBehaviour {
         if (dmgDealer != null) {
             TakeDamage(dmgDealer.GetDamage());
             PlayHitEffect();
+            _audioPlayer.PlayDamageTakenClip();
             dmgDealer.Hit();
         }
     }
