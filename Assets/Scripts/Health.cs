@@ -4,13 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
+    [SerializeField] private bool _isPlayer;
     [SerializeField] private int health = 50;
+    [SerializeField] private int score = 50;
     [SerializeField] private ParticleSystem _hitEffect;
 
     private AudioPlayer _audioPlayer;
+    private Score _score;
     
     private void Awake() {
         _audioPlayer = FindObjectOfType<AudioPlayer>();
+        _score = FindObjectOfType<Score>();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -24,11 +28,22 @@ public class Health : MonoBehaviour {
         }
     }
 
+    public int GetHealth() {
+        return health;
+    }
+
     private void TakeDamage(int damageAmount) {
         health -= damageAmount;
         if (health <= 0) {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die() {
+        if (!_isPlayer) {
+            _score.AddScore(score);
+        }
+        Destroy(gameObject);
     }
 
     void PlayHitEffect() {

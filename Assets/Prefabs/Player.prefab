@@ -144,7 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699e38da87508ee48af07db986074e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPlayer: 1
   health: 100
+  score: 50
   _hitEffect: {fileID: 6026333260988597954, guid: fa2aaea867e1b8a419fc352773ccd559, type: 3}
 --- !u!114 &6584034967634206403
 MonoBehaviour:
