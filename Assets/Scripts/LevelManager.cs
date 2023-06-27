@@ -22,6 +22,11 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void LoadGameOver() {
+        int highScore = PlayerPrefs.GetInt("HighScore");
+        if (highScore < _score.GetScore()) {
+            PlayerPrefs.SetInt("HighScore", _score.GetScore());
+        }
+        
         StartCoroutine(WaitAndLoad(2, _sceneLoadDelay));
     }
 
