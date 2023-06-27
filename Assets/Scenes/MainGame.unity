@@ -962,7 +962,14 @@ MonoBehaviour:
   waveConfigs:
   - {fileID: 11400000, guid: 4d6224c9161c5cf4fb1e9ae2b04b483c, type: 2}
   - {fileID: 11400000, guid: 9015bf9c5cfca0d44b124f1b6293acb2, type: 2}
-  - {fileID: 11400000, guid: 4d6224c9161c5cf4fb1e9ae2b04b483c, type: 2}
+  - {fileID: 11400000, guid: d565de4e86f5bd04b9744bd03b6c0075, type: 2}
+  - {fileID: 11400000, guid: dd1dc4bade16aea4c85a4f900e2058d3, type: 2}
+  - {fileID: 11400000, guid: 6d00ce3e077bf9343bfcfa6c092c9018, type: 2}
+  - {fileID: 11400000, guid: 1af1467e64562fd45999022a22e61eb4, type: 2}
+  - {fileID: 11400000, guid: d565de4e86f5bd04b9744bd03b6c0075, type: 2}
+  - {fileID: 11400000, guid: dd1dc4bade16aea4c85a4f900e2058d3, type: 2}
+  - {fileID: 11400000, guid: 6d00ce3e077bf9343bfcfa6c092c9018, type: 2}
+  - {fileID: 11400000, guid: 1af1467e64562fd45999022a22e61eb4, type: 2}
   timeBetweenWaves: 2
   isLooping: 1
 --- !u!4 &1823361611

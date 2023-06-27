@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: -6209654099078089847}
   - component: {fileID: -6725369408309399625}
   - component: {fileID: 3001007376379178494}
+  - component: {fileID: 2681617606525096197}
   m_Layer: 7
-  m_Name: Enemy_0
+  m_Name: Enemy_2 (heal)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +113,7 @@ MonoBehaviour:
   _isPlayer: 0
   _maxHealth: 100
   health: 50
-  score: 150
+  score: 200
   _hitEffect: {fileID: 6026333260988597954, guid: fa2aaea867e1b8a419fc352773ccd559, type: 3}
 --- !u!114 &-6725369408309399625
 MonoBehaviour:
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4cc15da9ada13f4199d8e242d6e1bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 10
 --- !u!114 &3001007376379178494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,13 +141,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8459033985725890120, guid: 4a8e9181c8e76924bbd03b0ea6f3360a, type: 3}
-  projectileSpeed: 6
-  projectileLifetime: 5
-  baseFireRate: 0.85
-  fireRateVariance: 0.35
+  projectileSpeed: 10
+  projectileLifetime: 4
+  baseFireRate: 0.7
+  fireRateVariance: 0.1
   minFireRate: 0.2
   useAI: 1
   isShooting: 0
+--- !u!114 &2681617606525096197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503331646676607728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0458d4ef9ae2e4542b557c0573edcb82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healAmount: 15
 --- !u!1 &7766890857461360958
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +234,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a4a8f843e259e5e449c3bd754ebdf9c6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9470b8d3d0f2a864491644665b90a5df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

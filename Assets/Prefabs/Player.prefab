@@ -145,7 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPlayer: 1
-  health: 100
+  _maxHealth: 300
+  health: 300
   score: 50
   _hitEffect: {fileID: 6026333260988597954, guid: fa2aaea867e1b8a419fc352773ccd559, type: 3}
 --- !u!114 &6584034967634206403
@@ -161,9 +162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8459033985725890120, guid: 093111dce84a0be4fa02318c299c7e88, type: 3}
-  projectileSpeed: 12
-  projectileLifetime: 4
-  baseFireRate: 0.25
+  projectileSpeed: 14
+  projectileLifetime: 3
+  baseFireRate: 0.15
   fireRateVariance: 0
   minFireRate: 0.1
   useAI: 0

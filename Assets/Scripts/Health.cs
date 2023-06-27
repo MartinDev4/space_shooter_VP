@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
     [SerializeField] private bool _isPlayer;
+    [SerializeField] private int _maxHealth = 100;
     [SerializeField] private int health = 50;
     [SerializeField] private int score = 50;
     [SerializeField] private ParticleSystem _hitEffect;
@@ -12,11 +13,14 @@ public class Health : MonoBehaviour {
     private AudioPlayer _audioPlayer;
     private Score _score;
     private LevelManager _levelManager;
+    private HealPlayer _healPlayer;
     
     private void Awake() {
         _audioPlayer = FindObjectOfType<AudioPlayer>();
         _score = FindObjectOfType<Score>();
         _levelManager = FindObjectOfType<LevelManager>();
+        _healPlayer = GetComponent<HealPlayer>();
+        health = _maxHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -34,10 +38,23 @@ public class Health : MonoBehaviour {
         return health;
     }
 
+    public int GetMaxHealth() {
+        return _maxHealth;
+    }
+
     private void TakeDamage(int damageAmount) {
         health -= damageAmount;
         if (health <= 0) {
+            if (_healPlayer != null) {
+                _healPlayer.HealP();
+            }
             Die();
+        }
+    }
+
+    public void Heal(int healAmount) {
+        if ((health + healAmount) <= _maxHealth) {
+            health += healAmount;
         }
     }
 
