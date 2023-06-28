@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour {
+    public static Player _instance { private set; get; }
     private Vector2 _rawInput;
     [SerializeField] private float _moveSpeed = 10f;
 
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour {
 
     private void Awake() {
         _shooter = GetComponent<Shooter>();
+        _instance = this;
     }
 
     private void Start() {

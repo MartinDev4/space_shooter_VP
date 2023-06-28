@@ -8,21 +8,21 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private float _sceneLoadDelay = 2f;
     private Score _score;
 
-    private void Awake() {
-        _score = FindObjectOfType<Score>();
+    private void Start() {
+        _score = Score._instance;
     }
 
     public void LoadGame() {
         _score.ResetScore();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void LoadMainMenu() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadSceneAsync(0);
     }
 
     public void LoadGameOver() {
-        int highScore = PlayerPrefs.GetInt("HighScore");
+        int highScore = PlayerPrefs.GetInt("HighScore", 0);
         if (highScore < _score.GetScore()) {
             PlayerPrefs.SetInt("HighScore", _score.GetScore());
         }

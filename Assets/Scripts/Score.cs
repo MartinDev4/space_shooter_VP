@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Score : MonoBehaviour {
     private int _score;
-    private static Score _instance;
+    public static Score _instance { private set; get; }
 
     private void Awake() {
         ManageSingleton();

@@ -38,10 +38,6 @@ public class Health : MonoBehaviour {
         return health;
     }
 
-    public int GetMaxHealth() {
-        return _maxHealth;
-    }
-
     private void TakeDamage(int damageAmount) {
         health -= damageAmount;
         if (health <= 0) {
